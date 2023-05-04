@@ -90,5 +90,5 @@ update test-docker-compose.yaml file to enable build mode like below
 ### Run with docker compose 
 
 - Copy the content of [test-docker-compose.yaml](./test-docker-compose.yaml) to your `docker-compose.yaml` file
-- Update the environment variables as per your need
+- Update the environment variables / volumes / ports as per your need
 - Run `docker compose up -d`
