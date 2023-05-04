@@ -1,0 +1,25 @@
+# docker compose file
+
+version: '3.3'
+services:
+  test-node-1:
+    # use image directly if you don't want to build the image yourself
+    image: goodbai/go-docker-runner:latest
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    ports:
+      # host-port:container-port
+      - "8545:8545"
+      - "30303:30303"
+    volumes:
+      # host:container
+      # suggest to change the host path to your own path and keep the container path unchanged
+      - ./volumes/scroll-data-1:/scroll-data
+    environment:
+      - MODE=GIT
+      - GIT_REPO_URL=https://github.com/scroll-tech/go-ethereum.git
+      - COMMIT_HASH=1263e63
+      - BUILD_CMD='make geth'
+      - BUILT_BINARY_REL_PATH=./build/bin/geth
+      - CMD_ARGS='--datadir=/scroll-data --scroll-alpha --gcmode archive --http --http.port 8545 --http.api "eth,net,web3,debug,scroll" --cache.noprefetch --snapshot=true --syncmode full'
