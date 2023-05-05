@@ -15,7 +15,7 @@ services:
     volumes:
       # host:container
       # suggest to change the host path to your own path and keep the container path unchanged
-      - ./volumes/scroll-data-1:/scroll-data
+      - ../volumes/scroll-data-1:/scroll-data
     environment:
       - MODE=GIT
       - GIT_REPO_URL=https://github.com/scroll-tech/go-ethereum.git

@@ -9,5 +9,3 @@ docker run --rm -it \
     -e BUILT_BINARY_REL_PATH=./build/bin/geth \
     -e CMD_ARGS='--help' \
     go-docker-runner:local
-
-
